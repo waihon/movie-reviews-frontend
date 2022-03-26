@@ -6,6 +6,18 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/NavBar';
 
 function App() {
+  // Declare a user state variable using React hooks, with null as the
+  // initial value.
+  const [user, setUser] = React.useState(null);
+
+  async function login(user = null) { // default user to null
+    setUser(user);
+  }
+
+  async function logout() {
+    setUser(null);
+  }
+
   return (
     <div className="App">
       <Navbar bg="light" expand="lg">
@@ -17,8 +29,8 @@ function App() {
               <Link to={"/movies"}>Movies</Link>
             </Nav.Link>
             <Nav.Link>
-              { false ? (
-                <a href="#logout">Logout User</a>
+              { user ? (
+                <a onClick={logout}>Logout User</a>
               ) : (
                 <Link to={"/login"}>Login</Link>
               )}
