@@ -1,9 +1,12 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/NavBar';
+
+import MoviesList from './components/movies-list';
+import Login from './components/login';
 
 function App() {
   // Declare a user state variable using React hooks, with null as the
@@ -38,6 +41,12 @@ function App() {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+
+      <Routes>
+        <Route path="/" element={<MoviesList />} />
+        <Route path="/movies" element={<MoviesList />} />
+        <Route path="/login" element={<Login login={login} />} />
+      </Routes>
     </div>
   );
 }
