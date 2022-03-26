@@ -30,7 +30,7 @@ function App() {
             </Nav.Link>
             <Nav.Link>
               { user ? (
-                <a onClick={logout}>Logout User</a>
+                <button onClick={logout}>Logout User</button>
               ) : (
                 <Link to={"/login"}>Login</Link>
               )}
